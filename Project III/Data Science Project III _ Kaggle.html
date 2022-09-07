@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://www.kaggle.com/code/rezaadiguna/data-science-project-iii/edit/run/104810471 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="./Data Science Project III _ Kaggle_files/icon" rel="stylesheet"><style>@import url('https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i');
+    @import url("https://use.typekit.net/tql2nih.css");
+
+    html,
+    body {
+      font-family: Inter, sans-serif;
+      height: 100%;
+      margin: 0;
+    }
+
+    .header {
+      padding: 0;
+    }
+
+    #root {
+      height: 100%;
+    }</style><meta name="description" content="The Kaggle Kernels IDE for Data Scientists."><script type="text/javascript" async="" src="./Data Science Project III _ Kaggle_files/recaptcha__en_gb.js.download" crossorigin="anonymous" integrity="sha384-WD4EnGQVEfLS3UCD6ihJASQKS1zICsYdqV+9wU+gIAB9J8OxZMzIYXIuxo34k1XT" nonce=""></script><script type="text/javascript" async="" src="./Data Science Project III _ Kaggle_files/js" nonce=""></script><script type="text/javascript" async="" src="./Data Science Project III _ Kaggle_files/analytics.js.download" nonce=""></script><script nonce="" defer="defer" src="./Data Science Project III _ Kaggle_files/notebook-d44314343622d5a9b3aa.js.download"></script><link href="./Data Science Project III _ Kaggle_files/notebook-4badd0fa467d65d49e40.css" rel="stylesheet">
+
+          <script nonce="">window.KAGGLE_JUPYTERLAB_PATH = "/static/dist/jupyterlab/jupyterlab-index-353e2933e12a2cc45fcf.html";</script>
+          
+<title>Data Science Project III | Kaggle</title>
+<meta property="description" content="The Kaggle Notebooks IDE for Data Scientists.">
+
+<style data-styled="active" data-styled-version="5.3.5"></style><script id="google-recaptcha-v3" src="./Data Science Project III _ Kaggle_files/api.js.download"></script><style data-react-tooltip="true">.__react_component_tooltip {
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 13px;
+  left: -999em;
+  opacity: 0;
+  padding: 8px 21px;
+  position: fixed;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  top: -999em;
+  visibility: hidden;
+  z-index: 999;
+}
+.__react_component_tooltip.allow_hover, .__react_component_tooltip.allow_click {
+  pointer-events: auto;
+}
+.__react_component_tooltip::before, .__react_component_tooltip::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.__react_component_tooltip.show {
+  opacity: 0.9;
+  margin-top: 0;
+  margin-left: 0;
+  visibility: visible;
+}
+.__react_component_tooltip.place-top::before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -10px;
+}
+.__react_component_tooltip.place-bottom::before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -8px;
+  left: 50%;
+  margin-left: -10px;
+}
+.__react_component_tooltip.place-left::before {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  right: -8px;
+  top: 50%;
+  margin-top: -5px;
+}
+.__react_component_tooltip.place-right::before {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  left: -8px;
+  top: 50%;
+  margin-top: -5px;
+}
+.__react_component_tooltip .multi-line {
+  display: block;
+  padding: 2px 0;
+  text-align: center;
+}</style><link id="dynamic-favicon" rel="shortcut icon" href="https://www.kaggle.com/favicon.ico"></head><body><div id="root"><div class="" style="height: inherit; --mdc-theme-on-primary:#fff; --mdc-theme-on-surface:rgba(0, 0, 0, 0.87); --mdc-theme-text-primary-on-background:rgba(0, 0, 0, 0.87); --mdc-theme-text-secondary-on-background:rgba(0, 0, 0, 0.54); --mdc-theme-text-hint-on-background:rgba(0, 0, 0, 0.38); --mdc-theme-text-disabled-on-background:rgba(0, 0, 0, 0.38); --mdc-theme-text-icon-on-background:rgba(0, 0, 0, 0.38); --mdc-theme-primary:#20BEFF; --mdc-theme-error:#F58B8A; --mdc-theme-background:#F8F8F8; --mdc-theme-surface:#fff; --mdc-theme-primary-bg:#20BEFF; --mdc-theme-secondary-bg:#919294;"><div id="rmwcPortal"><div class="mdc-menu sc-cZwWEu kfZFIR mdc-menu-surface" aria-hidden="true"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Code</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Markdown</p></div></li></ul></div><div class="mdc-menu sc-cZwWEu kfZFIR sc-kwMEKh jDCXyu mdc-menu-surface" aria-hidden="true"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">power_settings_new</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><p class="sc-cxabCf sc-llJcti jBwIGx hMXWEN">Start session</p></p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj eyNSB mdc-list-item mdc-list-item--disabled"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">loop</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><p class="sc-cxabCf sc-llJcti jBwIGx hMXWEN">Factory reset</p></p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">settings_backup_restore</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><p class="sc-cxabCf sc-llJcti jBwIGx hMXWEN">Restart &amp; Clear Cell Outputs</p></p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">info</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><p class="sc-cxabCf sc-llJcti jBwIGx hMXWEN">View Session Metrics</p></p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">open_in_new</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><p class="sc-cxabCf sc-llJcti jBwIGx hMXWEN">Upgrade to Google Cloud AI Notebooks</p></p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">memory</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN"><div style="display: flex;"><span>Accelerator</span></div></p></div></li></ul></div><div class="sc-fbbMOy jprhwC sc-iebQli dwYPeN mdc-menu-surface"><div role="document"><div class="sc-hjgKkF hkzDuB"><div tabindex="0" class="sc-VCphh gWCxCl"><h5 class="sc-dIouRR sc-hHLeRK ipdnRD eZwBsd">No Active Events</h5><br><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Keep track of dataset uploads, competition submissions, scheduled notebooks, and running notebooks here.</p><br><div class="sc-frunHE iBAvnJ"><a href="https://www.kaggle.com/code/welcome" target="_blank" tabindex="0" class="sc-fWjsSh elcHeH"><button class="sc-fHsOPI cVTmbe" tabindex="-1" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf iXgWvr" color="#FFFFFF" sizevalue="18px">add</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">New Notebook</span></button></a><a href="https://www.kaggle.com/datasets/new" target="_blank" tabindex="0" class="sc-fWjsSh elcHeH"><button class="sc-fHsOPI cVTmbe" tabindex="-1" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf iXgWvr" color="#FFFFFF" sizevalue="18px">add</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">New Dataset</span></button></a></div></div><ul role="list" class="km-list"><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-kEtyQH kCIAKd"><a class="sc-gFGZVQ NUNdY"><div class="sc-jfmDQi jFmASs"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><div class="sc-kUewZj fQCUhV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-blBtxQ cYjNef" emphasis="high" sizevalue="24px">auto_awesome_motion</i><div color="#FAE041" class="sc-dfFGah jRnhPz">0</div></div></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks"><p class="sc-cxabCf sc-llJcti ieLZFa hMXWEN">0 Active Events</p></div></div></a><div class="sc-ckMVTt jfwJWs"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" emphasis="high" sizevalue="24px" role="button" tabindex="0">expand_more</i></div></div></li></ul></div></div></div></div><div tabindex="-1" style="outline: none; height: inherit;"><div class="sc-hjQCSK sc-gGnURB MnsCH eEGtcN"><div class="sc-iuStju eldebO"><div class="sc-iqGgem derQeF"><div class="sc-eVQfli hFfgcO"><button aria-label="menu" class="sc-jSMfEi bWdumZ undefined google-material-icons">menu</button></div><a href="https://www.kaggle.com/code/rezaadiguna/data-science-project-iii/edit/run/104810471#site-content" class="sc-iFwKgL gxZOUP">Skip to<br>content</a><div class="sc-kTvvXX dARouf"><a href="https://www.kaggle.com/"><img src="./Data Science Project III _ Kaggle_files/site-logo.svg" alt="Kaggle" class="sc-eXBvqI eHPYzs"></a></div></div></div><div class="sc-ddcaxn dTGPgj"><button class="sc-bSakgD kAsOqi"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 30L20 16L16 20L16 30L20 30Z" fill="#20BEFF"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M20 20L30 20L30 16L20 16L20 20Z" fill="#20BEFF"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 20L20 16L15.937 16L6 16L6 20L16 20Z" fill="#20BEFF"></path><rect x="20" y="16" width="4" height="10" transform="rotate(-180 20 16)" fill="#20BEFF"></rect></svg><span class="sc-ezWOiH sc-bZkfAO sc-jvLaUc fuNBHd kxbrKq yHGcx">Create</span></button><div class="mdc-menu sc-cZwWEu dVIKvk sc-edUIhV fhkBUQ mdc-menu-surface" aria-hidden="true" style="transform-origin: left top; left: 0px; top: 0px; max-height: 568px;"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">code</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">New Notebook</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">table_chart</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">New Dataset</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">emoji_events</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">New Competition</p></div></li></ul></div></div><div class="sc-egNfGp hwZwlv"><div class="sc-hFrEEg epISrx"><div class="sc-hKpBwk eCEzsp"><div class="sc-ewDcJz eYLSHB"><div class="sc-gJwTLC bDOeiF"><div class="sc-grVGCS ciihzg"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-cwpsFg cOgNGQ" emphasis="low" sizevalue="24px">search</i><input placeholder="Search" aria-label="Search" class="sc-afnQL dFfssL" value=""></div></div></div><ul role="list" class="km-list"><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">explore</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">Home</p></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/competitions"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">emoji_events</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">Competitions</p></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/datasets"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">table_chart</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">Datasets</p></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs ezKwHr sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/code"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-hZgfyJ bIcQNv" emphasis="high" sizevalue="24px">code</i><p class="sc-bBrHrO sc-ivTmOn gdFqSP DPcjy" style="padding-left: 20px;">Code</p><div class="sc-jmnVvD gdBYfp"></div></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/discussion"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">comment</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">Discussions</p></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/learn"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">school</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">Courses</p></a></div></li><li role="listitem" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs iYaBFN sc-iXxrte dvKkdP"><a class="sc-gFGZVQ NUNdY" href="https://www.kaggle.com/code/rezaadiguna/data-science-project-iii/edit/run/104810471#"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-hZgfyJ bIcQNv" emphasis="low" sizevalue="24px">expand_more</i><p class="sc-bBrHrO sc-ivTmOn dsQgUo DPcjy" style="padding-left: 20px;">More</p></a></div></li></ul></div></div><div class="sc-itUGML jYBfSO"><div class="mdc-menu-surface--anchor"><button class="sc-dKPNSi jRIacy"><div class="sc-kUewZj fQCUhV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-blBtxQ cYjNef" emphasis="high" sizevalue="24px">auto_awesome_motion</i><div color="#FAE041" class="sc-dfFGah jRnhPz">0</div></div><p class="sc-bBrHrO sc-ivTmOn sc-fmkKdQ dsQgUo DPcjy ccfUJY">View Active Events</p></button></div></div></div></div><div data-testid="searchContainer" class="sc-lapBoI gyRydo"><div></div><div class="sc-cMvPtu iLlAZA"><div></div></div></div><div id="site-content" class="sc-dwVMhp hijMgu"><div class="sc-gVAlfg hVfsnf"></div><div data-testid="notebook-editor-render-tid" class="sc-ircMwW dMOEYL"><div class="sc-hNMcUi elDqTN"><div></div><div class="sc-juEKsz IhSSb"><div class="sc-jjzPuQ bTKyEk"><button aria-label="menu" class="sc-jSMfEi bWdumZ undefined google-material-icons">menu</button></div><div class="sc-hMSuzY jyXktK"><div class="sc-ilxaJO dDCHdE"><div class="sc-lcWXdu bCtTNq MuiFormControl-root sc-kiblZB dYFOQJ" aria-describedby="component-error-text"><div class="sc-kgYCRK kHcMmX"><div class="sc-lcWsae bXSVma"><div class="sc-lcWXdu kxXaht MuiFormControl-root MuiFormControl-fullWidth sc-exVHZH MuiTextField-root sc-gHetzH dFDGRh"><div class="sc-dGBNLl sc-cRkqwB bEyIHj hNSUyw MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl"><input aria-invalid="false" autocomplete="off" id="notebook-title-input" type="text" maxlength="50" class="sc-bIStaS sc-gyKfoT cVrsbt hzfGWy MuiOutlinedInput-input MuiInputBase-input" value="Data Science Project III" style="font-family: Inter, sans-serif; font-size: 20px; padding: 2px 7px; text-overflow: ellipsis;"><fieldset aria-hidden="true" class="sc-cUcmyX bVjlnJ sc-jpInJi gyyhGF MuiOutlinedInput-notchedOutline"><legend class="sc-fIiyQQ hmaHmn"><span class="notranslate">​</span></legend></fieldset></div></div></div><div class="sc-fLgErn ggrsEc">Data Science Project III_</div></div></div><div class="sc-cDDppj dbngBm">Draft saved</div></div><div class="sc-jtLbYp AppzZ"><div class="sc-JzcMS fKDoxi"><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">File</button><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">Edit</button><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">View</button><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">Run</button><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">Add-ons</button><button class="sc-kgMgwB fhWMTU MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-gzcill cIZxFW sc-hdbbaY iexIMb" tabindex="0" type="button">Help</button></div></div></div><div class="sc-ekvVmM eVoIJF"><button class="sc-fHsOPI eIRLGr sc-geAhPd dpaXKg" tabindex="0" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" color="#202124" sizevalue="18px">people</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Share</span></button></div><div class="sc-kKMLfZ iDvKFA sc-iVYMGn RyDAz"><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_55620ba5-9671-48c2-bcba-ee4993bfd06a" currentitem="false" style="vertical-align: top;"><button class="sc-fHsOPI cVTmbe sc-hQDlwE fFeUos" tabindex="0" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf iXgWvr" color="#FFFFFF" sizevalue="18px">update</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Save Version</span></button><div class="__react_component_tooltip t45c412b6-d240-4a58-9d0c-6026a7257980 place-bottom type-dark" id="tooltip_components_55620ba5-9671-48c2-bcba-ee4993bfd06a" data-id="tooltip"><style aria-hidden="true">
+  	.t45c412b6-d240-4a58-9d0c-6026a7257980 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t45c412b6-d240-4a58-9d0c-6026a7257980.place-top {
+        margin-top: -10px;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-bottom {
+        margin-top: 10px;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-left {
+        margin-left: -10px;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-right {
+        margin-left: 10px;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t45c412b6-d240-4a58-9d0c-6026a7257980.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Save a new version of your work.</div></div></div><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_a2fe236c-a7c6-4ec3-b59b-e4f7b25af408" currentitem="false" style="vertical-align: top;"><button class="sc-fHsOPI bPJXqx sc-dROkDQ ljGzEL" tabindex="0" role="button"><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">3</span></button><div class="__react_component_tooltip te2937838-9a5d-4e21-b021-670607fbab40 place-bottom type-dark" id="tooltip_components_a2fe236c-a7c6-4ec3-b59b-e4f7b25af408" data-id="tooltip"><style aria-hidden="true">
+  	.te2937838-9a5d-4e21-b021-670607fbab40 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.te2937838-9a5d-4e21-b021-670607fbab40.place-top {
+        margin-top: -10px;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-bottom {
+        margin-top: 10px;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-left {
+        margin-left: -10px;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-right {
+        margin-left: 10px;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .te2937838-9a5d-4e21-b021-670607fbab40.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Show versions</div></div></div></div><div class="sc-jSpIif kOCOYq"><button aria-label="Toggle sidebar visibility" title="Toggle sidebar visibility" class="sc-jSMfEi bWdumZ undefined google-material-icons">last_page</button></div></div></div><div class="sc-jdlHpP kZHaHT"><div class="sc-jfRwit cqKzoB"><div mode="column" class="sc-kLOYGq HREEt"><div class="sc-fJAkKG jGOKbr"><div class="sc-bXVllQ gKuTQX"><div class="sc-hhVlin gdgUwo"><div class="sc-fukmEy pnSsa"><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Add cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">add</i></button><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Delete cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">delete</i></button><div class="sc-bVFNGH bcDNNN"></div><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Cut cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">content_cut</i></button><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Copy cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">content_copy</i></button><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Paste cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">content_paste</i></button><div class="sc-bVFNGH bcDNNN"></div><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="Run current cell"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">play_arrow</i></button><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz labeled" title="Run all"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">fast_forward</i><div class="sc-bhcLyc frQczh">Run All</div></button><div class="sc-bVFNGH bcDNNN"></div><div class="mdc-menu-surface--anchor"><button class="sc-fHsOPI MFRjD" tabindex="0" role="button"><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Code</span><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" color="#202124" sizevalue="18px">arrow_drop_down</i></button></div></div><div class="sc-gTeHfO gNJcjN"></div><button disabled="" class="sc-QzmmP sc-gJTyrF ihEOpW kuqjUt"><div class="sc-eyHTTJ iWdktD"><div class="sc-hIkKma uzWVO"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kWewhy" color="#80868B" sizevalue="1.125em" title="off (run a cell to start)" aria-label="off (run a cell to start)" verticalalign="-0.125em">circle</i><div class="sc-hXbooz iVXtWS">Draft Session</div></div><div class="sc-ejRpRk hHVaBM">off (run a cell to start)</div></div></button><div class="sc-dhmRnH cvsOUC"><button class="sc-QzmmP sc-iXTVZh ihEOpW cQTDPz" title="More"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">more_vert</i></button></div></div><div class="sc-chHleq hUPqrg"><div class="sc-wkCba hkweHT"></div><div class="sc-efqFOJ inqjrN" data-testid="notebook-editor-jl-frame-render-tid" title="Notebook editor cells" style="display: flex;"><iframe name="" class="" src="./Data Science Project III _ Kaggle_files/jupyterlab-index-353e2933e12a2cc45fcf.html"></iframe></div><div class="sc-inbMCf edlluf mdc-snackbar mdc-snackbar--leading" aria-live="assertive" aria-atomic="true" aria-hidden="true"><div class="mdc-snackbar__surface"><div role="status" aria-live="polite" class="mdc-snackbar__label"><div style="display: none;"></div></div><div class="mdc-snackbar__actions"></div></div></div></div><div class="sc-kTmzSA ijqbzh sc-bxdjLI jXLpFf"><div class="sc-fBwhgt eWzfeT"><div aria-valuemin="0" aria-valuemax="1" class="rmwc-circular-progress rmwc-circular-progress--size-xlarge rmwc-circular-progress--indeterminate rmwc-circular-progress--thickerstroke"><svg class="rmwc-circular-progress__circle" viewBox="0 0 48 48"><circle class="rmwc-circular-progress__path" cx="24" cy="24" r="20"></circle></svg></div></div><div class="sc-kuYQrC fnvMME"><div class="sc-jwHExh hGHsvn">Creating Save &amp; Run All Version</div><div class="sc-jhRauI hghcjg"></div></div><div class="sc-cZbDLb exLxHz"></div><div class="sc-cKkZIC cJppny"><button aria-label="close" class="sc-jSMfEi bWdumZ sc-bLTNOh hOpMyi google-material-icons">close</button><button class="sc-fHsOPI dnEahY" tabindex="0" role="button"><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Stop</span></button></div></div></div></div></div></div><div class="sc-qaOmB jLQOgN"><div class="sc-cuqtlR hUIemi" style="position: relative; flex-basis: 370px; display: flex; flex-direction: row; max-height: 100%; height: 100%;"><div direction="horizontal" class="sc-fSUSjI dSMOCi"><div role="separator" aria-orientation="horizontal"></div></div><div style="width: 370px;"><div id="editor-sidebar-scroll-container" class="sc-hwsZRy icypgb"><div class="sc-crwTFP gsBVPg"><div class="sc-dYpzDs isrDzP"><div class="sc-iBkjds sc-fLlhyt uVZhN izULIq">Data</div><button aria-label="Collapse Data" title="Collapse Data" class="sc-jSMfEi bWdumZ undefined google-material-icons" style="flex-shrink: 0;">keyboard_arrow_up</button></div><div><div class="sc-begbuL fAEkwn"><div class="sc-YLmAF bwGejZ"><div class="sc-iaSSRK iXEBJW"><button class="sc-fHsOPI cIoQys" tabindex="0" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" color="#202124" sizevalue="18px">add</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Add Data</span></button><button aria-label="Upload data" title="Upload data" class="sc-jSMfEi gnYpgB undefined google-material-icons" style="margin-left: 8px;">file_upload</button></div><div class="sc-iRNHYo hUNyoO sc-dVfXgE cLkEtC"><div class="sc-iWQIae sc-gavXuf grMkNx geCClv">Input</div><ul class="sc-hVPSPU gYqEuU"><li class="sc-ilQfdG gKvgTw"><div role="button" class="sc-hQRsPl sc-dfvoPZ bQkiGX jepuay"><div class="sc-BrFsL gpztUP"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">arrow_right</i></div><div class="sc-bjuIDw bOpTkh"><img src="./Data Science Project III _ Kaggle_files/dataset-thumbnail.jpeg" class="sc-gPpHY OmYIU"></div><div class="sc-hBnnqw dzRyPZ"><div class="sc-jIAOiI dWXSNy sc-lgVVsH RqQtY" data-tip="true" data-for="tooltip_components_7fc4ff46-c3e2-4394-a54e-a58a1646bf31" currentitem="false"><p class="sc-cxabCf sc-llJcti sc-fjqEFS bGyNSd hMXWEN jQBmAK">pima-indians-diabetes-database</p><div class="__react_component_tooltip td3aec62e-a324-4397-95d4-53c44fbe4439 place-top type-dark react-tooltip" id="tooltip_components_7fc4ff46-c3e2-4394-a54e-a58a1646bf31" data-id="tooltip" style="left: 1044px; top: 183px;"><style aria-hidden="true">
+  	.td3aec62e-a324-4397-95d4-53c44fbe4439 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.td3aec62e-a324-4397-95d4-53c44fbe4439.place-top {
+        margin-top: -10px;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-bottom {
+        margin-top: 10px;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-left {
+        margin-left: -10px;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-right {
+        margin-left: 10px;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .td3aec62e-a324-4397-95d4-53c44fbe4439.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Pima Indians Diabetes Database</div></div></div></div><div class="sc-ibMOqO isbcUy"><div class="sc-iXKDzi eSWivM"><div class="sc-dhqjGB eCWqM"><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_af4bd24f-77cd-4791-88e9-3ae92d3387e9" currentitem="false"><div role="button" class="sc-hDiigY cFJeer"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">content_copy</i></div><div class="__react_component_tooltip t74fd6f02-a4b8-4cb7-9004-3f5e584f578f place-top type-dark" id="tooltip_components_af4bd24f-77cd-4791-88e9-3ae92d3387e9" data-id="tooltip"><style aria-hidden="true">
+  	.t74fd6f02-a4b8-4cb7-9004-3f5e584f578f {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-top {
+        margin-top: -10px;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-bottom {
+        margin-top: 10px;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-left {
+        margin-left: -10px;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-right {
+        margin-left: 10px;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t74fd6f02-a4b8-4cb7-9004-3f5e584f578f.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Copy file path</div></div></div><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_52bd6153-6da4-49e8-b219-0ebb95c89e60" currentitem="false"><div role="button" class="sc-hDiigY cFJeer"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">more_vert</i></div><div class="__react_component_tooltip t0823b309-b18e-4385-a5ad-0915a5e3530a place-top type-dark" id="tooltip_components_52bd6153-6da4-49e8-b219-0ebb95c89e60" data-id="tooltip"><style aria-hidden="true">
+  	.t0823b309-b18e-4385-a5ad-0915a5e3530a {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t0823b309-b18e-4385-a5ad-0915a5e3530a.place-top {
+        margin-top: -10px;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-bottom {
+        margin-top: 10px;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-left {
+        margin-left: -10px;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-right {
+        margin-left: 10px;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t0823b309-b18e-4385-a5ad-0915a5e3530a.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">More actions</div></div></div></div><div class="mdc-menu-surface--anchor"><div class="mdc-menu sc-cZwWEu kfZFIR mdc-menu-surface" aria-hidden="true" style="transform-origin: left top; left: 0px; top: 0px; max-height: 337px;"><ul role="menu" class="mdc-list mdc-menu__items mdc-list"><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">open_in_new</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Open in new tab</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">cached</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Check for updates</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">delete</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Remove</p></div></li><li tabindex="0" role="menuitem" class="mdc-ripple-upgraded sc-fIavCj bxtLwv mdc-list-item"><div class="sc-dkdnUF dcUHZR"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP sc-duzrYq dcjrIV" sizevalue="24px">update</i><p class="sc-cxabCf sc-llJcti bGyNSd hMXWEN">Pin to version</p></div></li></ul></div></div></div></div></div></li></ul></div><div class="sc-iRNHYo hUNyoO sc-dVfXgE jBZfCd"><div class="sc-iWQIae sc-gavXuf grMkNx geCClv">Output</div><ul class="sc-hVPSPU gYqEuU"><li class="sc-ilQfdG gKvgTw"><div role="button" class="sc-hQRsPl sc-dfvoPZ bQkiGX jepuay"><div class="sc-BrFsL gpztUP"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">arrow_right</i></div><div class="sc-bjuIDw bOpTkh"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">folder</i></div><div class="sc-hBnnqw dzRyPZ"><div class="sc-jIAOiI dWXSNy sc-lgVVsH RqQtY" data-tip="true" data-for="tooltip_components_f05defb8-1579-49db-9593-867f8f332334" currentitem="false"><p class="sc-cxabCf sc-llJcti sc-fjqEFS bGyNSd hMXWEN jQBmAK">/kaggle/working</p><div class="__react_component_tooltip tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32 place-top type-dark" id="tooltip_components_f05defb8-1579-49db-9593-867f8f332334" data-id="tooltip"><style aria-hidden="true">
+  	.tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-top {
+        margin-top: -10px;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-bottom {
+        margin-top: 10px;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-left {
+        margin-left: -10px;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-right {
+        margin-left: 10px;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .tca253b2b-cdbd-4a6e-8c15-07cbb40ddc32.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">/kaggle/working (1 directories)</div></div></div></div><div class="sc-ibMOqO isbcUy"><div class="sc-iXKDzi eSWivM"><div class="sc-dhqjGB eCWqM"><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_711a695b-57ab-49ff-97c2-0eb3462f2290" currentitem="false"><div role="button" class="sc-hDiigY cFJeer"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">content_copy</i></div><div class="__react_component_tooltip t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e place-top type-dark" id="tooltip_components_711a695b-57ab-49ff-97c2-0eb3462f2290" data-id="tooltip"><style aria-hidden="true">
+  	.t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-top {
+        margin-top: -10px;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-bottom {
+        margin-top: 10px;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-left {
+        margin-left: -10px;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-right {
+        margin-left: 10px;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t7b4fcd1c-8581-4139-88bc-fa54a8b9d19e.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Copy file path</div></div></div></div><div class="sc-jIAOiI dWXSNy" data-tip="true" data-for="tooltip_components_db798a3a-c98d-4455-98cc-717ce42ce81b" currentitem="false"><div role="button" class="sc-hDiigY cFJeer"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" sizevalue="18px">sync</i></div><div class="__react_component_tooltip t3749f5e9-d824-441a-9772-0185019d615e place-top type-dark" id="tooltip_components_db798a3a-c98d-4455-98cc-717ce42ce81b" data-id="tooltip"><style aria-hidden="true">
+  	.t3749f5e9-d824-441a-9772-0185019d615e {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t3749f5e9-d824-441a-9772-0185019d615e.place-top {
+        margin-top: -10px;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-bottom {
+        margin-top: 10px;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-left {
+        margin-left: -10px;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-right {
+        margin-left: 10px;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t3749f5e9-d824-441a-9772-0185019d615e.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  </style><div class="sc-ZyCDH iNJOA-D">Refresh directory contents</div></div></div></div></div></div></li></ul></div></div></div></div></div><div class="sc-crwTFP gsBVPg"><div class="sc-dYpzDs isrDzP"><div class="sc-iBkjds sc-fLlhyt uVZhN izULIq">Settings</div><button aria-label="Expand Settings" title="Expand Settings" class="sc-jSMfEi bWdumZ undefined google-material-icons" style="flex-shrink: 0;">keyboard_arrow_down</button></div></div><div class="sc-crwTFP gsBVPg"><div class="sc-dYpzDs isrDzP"><div class="sc-iBkjds sc-fLlhyt uVZhN izULIq">Schedule a notebook run</div><button aria-label="Expand Schedule a notebook run" title="Expand Schedule a notebook run" class="sc-jSMfEi bWdumZ undefined google-material-icons" style="flex-shrink: 0;">keyboard_arrow_down</button></div></div><div class="sc-crwTFP gsBVPg"><div class="sc-dYpzDs isrDzP"><div class="sc-iBkjds sc-fLlhyt uVZhN izULIq">Code Help</div><button aria-label="Collapse Code Help" title="Collapse Code Help" class="sc-jSMfEi bWdumZ undefined google-material-icons" style="flex-shrink: 0;">keyboard_arrow_up</button></div><div><div class="sc-begbuL fAEkwn"><div class="sc-hSGqtg gLGOoi"><button class="sc-fHsOPI cIoQys sc-bujudj bQLgCB" tabindex="0" role="button"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWACgA" color="#202124" sizevalue="18px">search</i><span class="sc-gXmSlM sc-cCsOjp cKhlzA piYDj">Find code help</span></button><aside class="sc-kgUAyh zMVor sc-elXbtp kNGGIX mdc-drawer mdc-drawer--dismissible"><div style="height: 100%;"><div class="sc-iNXQgE fVkusu"><div class="sc-eVOuSp bgYSyT"><h5 class="sc-dIouRR sc-hHLeRK sc-iVKqUL ipdnRD eZwBsd fpLFwp">Code help</h5></div><div class="sc-cYfahW huHRSl"><button aria-label="close" class="sc-jSMfEi bWdumZ undefined google-material-icons">close</button></div></div><div class="sc-jDNufw dZHeX"><div class="sc-fsquOa vUKfU"><div class="sc-isSunH jEHsCW"><div class="sc-grVGCS ciihzg"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf kqAYoQ sc-cwpsFg cOgNGQ" emphasis="low" sizevalue="24px">search</i><input placeholder="Find code help" aria-label="Find code help" class="sc-afnQL dFfssL" value=""></div></div><div class="sc-dwOrSJ BSDML"><ul><li tabindex="0" role="listitem" aria-label="Connect to BigQuery" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Connect to BigQuery</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Connect to Google Cloud Storage" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Connect to Google Cloud Storage</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Connect to AutoML" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Connect to AutoML</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Define a generic user secret" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Define a generic user secret</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Display an image" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Display an image</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Read a JSON file" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Read a JSON file</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Automatic EDA with pandas-profiling" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Automatic EDA with pandas-profiling</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Save a file to your working directory" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Save a file to your working directory</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Use legacy SQL syntax with BigQuery" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Use legacy SQL syntax with BigQuery</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Train a decision tree" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Train a decision tree</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Plot null values" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Plot null values</span> </div></div></li><li tabindex="0" role="listitem" aria-label="See source code for a function" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">See source code for a function</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Visualize a decision tree" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Visualize a decision tree</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Scatter plots with plotly express" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Scatter plots with plotly express</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Bubble plots with plotly express" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Bubble plots with plotly express</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Replace DataFrame null values with mean values" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Replace DataFrame null values with mean values</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Read a CSV file" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Read a CSV file</span> </div></div></li><li tabindex="0" role="listitem" aria-label="List the contents of your input directory" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">List the contents of your input directory</span> </div></div></li><li tabindex="0" role="listitem" aria-label="List installed packages" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">List installed packages</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Write to CSV" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Write to CSV</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Create and compile a TensorFlow Sequential model" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Create and compile a TensorFlow Sequential model</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Create and compile a TensorFlow Functional model " class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Create and compile a TensorFlow Functional model </span> </div></div></li><li tabindex="0" role="listitem" aria-label="Run a TensorFlow model on a TPU" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Run a TensorFlow model on a TPU</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Set up keras-tuner RandomSearch" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Set up keras-tuner RandomSearch</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Set up keras-tuner Hyperband" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Set up keras-tuner Hyperband</span> </div></div></li><li tabindex="0" role="listitem" aria-label="get CSV data from a URL with TensorFlow/Keras" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">get CSV data from a URL with TensorFlow/Keras</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Build a TF Dataset from Numpy arrays" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Build a TF Dataset from Numpy arrays</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Build a TF Dataset from a dictionary" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Build a TF Dataset from a dictionary</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Tokenize text with Tensorflow/Keras" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Tokenize text with Tensorflow/Keras</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Load a Tensorflow Dataset" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Load a Tensorflow Dataset</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Load a pretrained ImageNET Classifier" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Load a pretrained ImageNET Classifier</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Binary classification in TensorFlow" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Binary classification in TensorFlow</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Build a regression model in TensorFlow" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Build a regression model in TensorFlow</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Apply a transformation to a tensor" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Apply a transformation to a tensor</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Iterate over a tensor" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Iterate over a tensor</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Batch a dataset" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Batch a dataset</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Get GCS path for Kaggle datasets" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Get GCS path for Kaggle datasets</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Import a pretrained model" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Import a pretrained model</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Classification with imbalanced data" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Classification with imbalanced data</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Load images from a file directory" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Load images from a file directory</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Exponential decay learning rate scheduler callback" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Exponential decay learning rate scheduler callback</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Model checkpoint callback" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Model checkpoint callback</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Visualize model performance" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Visualize model performance</span> </div></div></li><li tabindex="0" role="listitem" aria-label="Trim a trailing newline" class="sc-lbxAil bibdZV"><div class="sc-iNWwEs hBdoQq sc-jPzPiz fIuygC"><div class="sc-eKszNL fAfAuF"><div class="sc-olbas MnCfV"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWA-DLP" sizevalue="24px">file_copy</i></div></div><div class="sc-iBkjds sc-fLlhyt sc-GVOUr uVZhN izULIq dGvkks sc-WywnD cQmgGI"> <span class="sc-kLLXSd sc-ikZpkk jtmWnw gJVCJh">Trim a trailing newline</span> </div></div></li></ul></div></div></div></div></aside></div></div></div></div></div></div></div></div></div><div class="sc-cuqtlR hUIemi" style="position: relative; flex-basis: 40px; display: flex; flex-direction: column;"><div direction="vertical" class="sc-fSUSjI ePIzRR"><div role="separator" aria-orientation="horizontal"></div></div><div style="height: 40px;"><div class="sc-llmmgr curczf"><div class="sc-iOvVvA dNbejt"><div class="sc-ROrPP cZDmmM">Console</div><button title="Show console" class="sc-jnaBFq sc-hSygng jRJdeV cPJvUF"><i class="rmwc-icon rmwc-icon--ligature google-material-icons sc-gKXOVf jWAFrv" sizevalue="20px">keyboard_arrow_up</i></button></div></div></div></div><span></span></div></div><div class="sc-hKdnnL bIdqGW"></div><div class="sc-inbMCf edlluf mdc-snackbar mdc-snackbar--leading" aria-live="assertive" aria-atomic="true" aria-hidden="true"><div class="mdc-snackbar__surface"><div role="status" aria-live="polite" class="mdc-snackbar__label"><div style="display: none;"></div></div><div class="mdc-snackbar__actions"></div></div></div></div></div></div><div id="modal-root"></div>
+<script nonce="">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-12629138-1', {
+        'optimize_id': 'GTM-52LNT9S',
+        'displayFeaturesTask': null,
+        'send_page_view': false,
+    });
+</script>
+<script nonce="" async="" src="./Data Science Project III _ Kaggle_files/js(1)"></script>
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./Data Science Project III _ Kaggle_files/anchor.html" width="256" height="60" role="presentation" name="a-qtq34ry8zzyw" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Data Science Project III _ Kaggle_files/saved_resource.html"></iframe></div></body></html>
